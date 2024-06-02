@@ -1,0 +1,4 @@
+name: "gp"
+bo_model:
+  _target_: "skanas.infra.hydra_surrogate_model_targets.instantiate_gp"
+  _partial_: True

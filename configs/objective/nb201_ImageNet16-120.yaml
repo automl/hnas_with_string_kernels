@@ -1,0 +1,5 @@
+name: "nb201_ImageNet16-120"
+dataset: "ImageNet16-120"
+model:
+  _target_: "skanas.infra.hydra_objective_targets.instantiate_objective"
+  _partial_: True

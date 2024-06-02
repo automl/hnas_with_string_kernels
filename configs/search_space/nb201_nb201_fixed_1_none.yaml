@@ -1,0 +1,6 @@
+name: 'nb201_fixed_1_none'
+space: "fixed_1_none"
+patience: 10
+model:
+  _target_: "skanas.infra.hydra_search_space_targets.instantiate_search_space"
+  _partial_: True

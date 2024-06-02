@@ -1,0 +1,25 @@
+defaults:
+  - search_space: nb201_variable_multi_multi
+  - objective: ???
+  - surrogate_model: ???
+  - override hydra/job_logging: full
+  - _self_
+
+data_path: ???
+n_train_values: [100]
+n_test: 500
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+y_log: True
+rs_only: False
+
+experiment_group: "test_${now:%Y-%m-%d-%H-%M-%S}"
+experiment_name: "${objective.name}__${surrogate_model.name}"
+
+hydra:
+  run:
+    dir: "/work/dlclarge2/birinxhl-hnas/results/surrogate_regression/${experiment_group}/${experiment_name}"
+  sweep:
+    dir: "/work/dlclarge2/birinxhl-hnas/results/surrogate_regression/${experiment_group}"
+    subdir: "${experiment_name}"
+  job:
+    chdir: true

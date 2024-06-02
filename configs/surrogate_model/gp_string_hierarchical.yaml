@@ -1,0 +1,9 @@
+name: "gp_string_hierarchical"
+kernel_type: ???
+hierarchy_considered: ???
+optimize_kernel_weights: True
+fit_num_iterations: 20
+combining_kernel_variant: "sum"
+bo_model:
+  _target_: "skanas.infra.hydra_surrogate_model_targets.instantiate_gp_string_hierarchical"
+  _partial_: True

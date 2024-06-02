@@ -1,0 +1,31 @@
+version: 1
+disable_existing_loggers: False
+
+formatters:
+  standard:
+    format: "%(asctime)s %(name)s.%(funcName)s [%(levelname)s]: %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: standard
+  full_file:
+    filename: full.log
+    class: logging.FileHandler
+    formatter: standard
+
+root:
+ level: INFO
+ handlers: [full_file]
+
+loggers:
+  py.warnings:
+    level: WARNING
+    handlers: [console]
+  skanas:
+    level: INFO
+    handlers: [console]
+  neps:
+    level: INFO
+    handlers: [console]

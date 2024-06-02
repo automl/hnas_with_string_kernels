@@ -1,0 +1,28 @@
+defaults:
+  - search_space: nb201_variable_multi_multi
+  - objective: ???
+  - surrogate_model: ???
+  - acquisition_sampler: evolution
+  - acquisition: EI
+  - override hydra/job_logging: full
+  - _self_
+
+data_path: ???
+seed: ???
+n_init: 10
+max_evaluations_total: 100
+max_evaluations_per_run: null
+pool_size: 200
+y_log: True
+
+experiment_group: "test_${now:%Y-%m-%d-%H-%M-%S}"
+experiment_name: "${objective.name}/${surrogate_model.name}__${acquisition_sampler.name}__${pool_size}/${seed}"
+
+hydra:
+  run:
+    dir: "/work/dlclarge2/birinxhl-hnas/results/search/${experiment_group}/${experiment_name}"
+  sweep:
+    dir: "/work/dlclarge2/birinxhl-hnas/results/search/${experiment_group}"
+    subdir: "${experiment_name}"
+  job:
+    chdir: true

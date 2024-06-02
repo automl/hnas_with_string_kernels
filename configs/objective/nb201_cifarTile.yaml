@@ -1,0 +1,5 @@
+name: "nb201_cifarTile"
+dataset: "cifarTile"
+model:
+  _target_: "skanas.infra.hydra_objective_targets.instantiate_objective"
+  _partial_: True
